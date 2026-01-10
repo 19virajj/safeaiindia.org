@@ -48,23 +48,14 @@
   }
 
   .header { text-align:center; }
-  .badge {
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:999px;
-    background:rgba(56,189,248,.12);
-    border:1px solid rgba(56,189,248,.25);
-    color:#a5f3fc;
-    font-size:12px;
-    margin-bottom:10px;
-  }
 
   h1 { margin:0 0 6px; }
+
   .sub {
     color:var(--muted);
     max-width:620px;
     margin:8px auto;
-    text-align:left;
+    text-align:center;
   }
 
   .section {
@@ -82,18 +73,67 @@
   .muted { color:var(--muted); font-size:13px; }
   .center { text-align:center; }
 
+  /* Community links */
+  .links {
+    text-align: center;
+  }
+
   .links a {
     display:inline-block;
-    margin-right:14px;
+    margin: 0 10px;
     color:#a5f3fc;
     border-bottom:1px dashed rgba(165,243,252,.4);
     text-decoration:none;
     font-size:14px;
   }
 
-  .links a:hover { color:white; border-bottom-color:white; }
+  .links a:hover {
+    color:white;
+    border-bottom-color:white;
+  }
 
-  /* --- MailerLite theme overrides --- */
+  /* Unlock animation */
+  .fade-out {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+
+  .fade-in {
+    animation: fadeInUp .45s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Confirmation line */
+  .confirm {
+    margin: 6px 0 14px;
+    font-size: 13px;
+    color: #a5f3fc;
+  }
+
+  /* Focus tags */
+  .tags span {
+    display: inline-block;
+    margin: 6px 6px 0;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: rgba(56,189,248,.12);
+    border: 1px solid rgba(56,189,248,.25);
+    color: #a5f3fc;
+  }
+
+  /* MailerLite overrides (kept intact) */
   .ml-form-embedContainer,
   .ml-form-embedWrapper {
     background: transparent !important;
@@ -135,20 +175,21 @@
 <div class="card">
 
   <div class="header">
-    <span class="badge">Community & Research</span>
     <h1>Safe AI India</h1>
     <p class="sub">
-Connecting India’s thinkers and builders to make AI safe and beneficial.
+      Building a safer AI future for India
     </p>
+
   </div>
 
   <!-- GATED SECTION -->
   <div id="gate" class="section">
-    <h2>Join the early members list</h2>
-
+    <h2>Safe AI India Newsletter</h2>
     <p class="muted center">
-      Unlock community spaces and updates from <b>insights@safeaiindia.org</b>.
+      AI safety research, discussions, and updates from India and around the world.
     </p>
+
+
 
 <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1766132");</style>
     <style type="text/css">
@@ -783,164 +824,6 @@ Connecting India’s thinkers and builders to make AI safe and beneficial.
     }
   </style>
     
-    
-
-    
-    
-
-    
-    
-
-    
-
-      
-        
-        
-      
-
-      
-        
-        
-      
-
-      
-
-            
-            
-            
-            
-            
-            
-      
-
-      
-
-      
-        
-        
-         
-        
-        
-      
-
-        
-        
-        
-        
-        
-        
-      
-
-       
-
-        
-        
-        
-        
-        
-        
-        
-       
-
-
-      
-        
-        
-        
-        
-  
-
-
-
-  
-        
-        
-        
-      
-
-
-      
-    
-    
-    
-    
-    
-    
-    
-  
-
-  
-        
-        
-        
-        
-        
-      
-
-      
-        
-        
-        
-        
-        
-      
-
-      
-        
-        
-        
-        
-        
-      
-
-       
-
-        
-        
-        
-        
-       
-
-       
-        
-        
-        
-        
-      
-
-      
-        
-        
-        
-        
-        
-        
-        
-       
-
-    
-
-    
-
-
-      
-
-
-      
-
-      
-      
-
-      
-
-      
-
-
-
-
-
-    
-
       
     <div id="mlb2-35304449" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35304449">
       <div class="ml-form-align-center ">
@@ -1062,12 +945,17 @@ Connecting India’s thinkers and builders to make AI safe and beneficial.
         <script>
             fetch("https://assets.mailerlite.com/jsonp/2016136/forms/175659629189006952/takel")
         </script>
+
     <p class="muted center">No spam. Unsubscribe anytime.</p>
   </div>
 
   <!-- UNLOCKED CONTENT -->
   <div id="content" class="section" style="display:none;">
     <h2>Community links</h2>
+
+    <p class="muted center confirm">
+      You’re in — community links below.
+    </p>
 
     <div class="links">
       <a href="https://chat.whatsapp.com/G1sDvDBudRmGJ0mBuV3WPI" target="_blank">WhatsApp Community</a>
@@ -1077,23 +965,35 @@ Connecting India’s thinkers and builders to make AI safe and beneficial.
     </div>
   </div>
 
-  <div class="section center muted">
-    Focus areas: AI alignment • governance • ethics • AI risk • safety culture
+  <div class="section center muted tags">
+    Focus areas:
+    <span>AI Safety</span>
+    <span>Alignment</span>
+    <span>Governance</span>
+    <span>Ethics</span>
+    <span>Risk & Reliability</span>
   </div>
 
 </div>
 
 <script>
+  function unlockContent() {
+    gate.classList.add("fade-out");
+    setTimeout(() => {
+      gate.style.display = "none";
+      content.style.display = "block";
+      content.classList.add("fade-in");
+    }, 350);
+  }
+
   if (localStorage.getItem("unlocked") === "yes") {
-    gate.style.display = "none";
-    content.style.display = "block";
+    unlockContent();
   }
 
   const params = new URLSearchParams(window.location.search);
   if (params.get("unlock") === "true") {
     localStorage.setItem("unlocked","yes");
-    gate.style.display = "none";
-    content.style.display = "block";
+    unlockContent();
   }
 </script>
 
